@@ -1,26 +1,33 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
-import {
-  Link
-} from 'react-router-dom'
+import React, { Component } from "react"
+import "hamburgers/dist/hamburgers.min.css"
+import styled from "styled-components"
+import { Link } from "react-router-dom"
 
 const Wrapper = styled.div`
   position: fixed;
+  width: 100vw;
+  z-index: 100;
 `
 
 const Menu = styled.ul`
   list-style-type: none;
-  padding: 0;
-  height: 30%;
+  height: 100vh;
+  margin: 0;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background: #fff;
+
+  li {
+    text-align: center;
+  }
 
   li a {
+    display: block;
     font-size: 1.4em;
     color: #666;
-    display: inline-block;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 
   li a::after {
@@ -28,18 +35,18 @@ const Menu = styled.ul`
     left: -0.4em;
     top: -0.6em;
     height: 0.7em;
-    content: '';
+    content: "";
     display: block;
     width: 0;
     opacity: 0.2;
-    transition: width .3s ease-out;
+    transition: width 0.3s ease-out;
   }
 
   li a:hover::after {
     width: calc(100% + 0.8em);
   }
 
-  li a{
+  li a {
     text-decoration: none;
   }
 
@@ -76,16 +83,64 @@ const Menu = styled.ul`
   }
 `
 
+const NavigatorBar = styled.div`
+  background: #fff;
+
+  .hamburger {
+    position: absolute;
+    right: 0;
+  }
+`
+
 class Header extends Component {
-  render () {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      showMenu: false
+    }
+    this.toggleButton = this.toggleButton.bind(this)
+  }
+
+  toggleButton() {
+    this.setState({
+      showMenu: !this.state.showMenu
+    })
+  }
+
+  render() {
+    const { showMenu } = this.state
     return (
       <Wrapper>
-        <Menu>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/work'>Work</Link></li>
-          <li><Link to='/portfolio'>Portfolio</Link></li>
-          <li><Link to='/contact'>Contact</Link></li>
-        </Menu>
+        <NavigatorBar>
+          <button
+            className={`hamburger hamburger--collapse ${
+              showMenu ? "is-active" : ""
+            }`}
+            type="button"
+            onClick={this.toggleButton}
+          >
+            <span className="hamburger-box">
+              <span className="hamburger-inner" />
+            </span>
+          </button>
+        </NavigatorBar>
+        {showMenu && (
+          <Menu onClick={this.toggleButton}>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/work">Work</Link>
+            </li>
+            <li>
+              <Link to="/portfolio">Portfolio</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </Menu>
+        )}
       </Wrapper>
     )
   }

@@ -32,7 +32,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
   
-    this.slogans = ['websites.', 'web applications.', 'user interfaces.', 'life.']
+    this.slogans = ['websites.', 'web applications.', , 'life.']
     this.state = {
       typing: true,
       sloganIdx: 0
