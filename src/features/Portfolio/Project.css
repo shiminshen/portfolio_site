@@ -1,0 +1,12 @@
+h1 button {
+  color: #51393C !important;
+  font-weight: bold !important;
+}
+
+.project span {
+  background-color: #415551;
+  color: #ffffff;
+  text-align: center;
+  margin-left: 3px;
+  padding: 3px 7px 3px 7px;
+}

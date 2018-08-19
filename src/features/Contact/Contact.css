@@ -1,0 +1,70 @@
+#contact {
+  height: 100%;
+  background-color: #fff0c4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.social-icons-group {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 20px;
+  width: 60px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+  border: 1px solid #3B5998;
+}
+
+.fa-facebook:hover {
+  padding: 10px;
+  font-size: 40px;
+  background: #fff;
+  border: 1px solid #3B5998;
+  color: #3B5998;
+}
+
+/* Google */
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  border: 1px solid #dd4b39;
+}
+
+.fa-google:hover {
+  padding: 10px;
+  font-size: 40px;
+  background: #fff;
+  border: 1px solid #dd4b39;
+  color: #dd4b39;
+}
+
+/* Girhub */
+.fa-github {
+  background: #000;
+  color: white;
+  border: 1px solid #000;
+}
+
+.fa-github:hover {
+  padding: 10px;
+  font-size: 40px;
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+}
